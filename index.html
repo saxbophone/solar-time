@@ -20,7 +20,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body onload="startTime()">
     <!-- Main full-width responsive container -->
     <div class="container-fluid">
       <main>
@@ -30,7 +30,8 @@
           <p>To see the local solar time for your location, click <strong>allow</strong> when prompted to allow access to your location.</p>
         </section>
         <section>
-          <h2>Your location is <span id="offset">? seconds ahead/behind UTC</span></h2>
+          <h2>Your location is <span id="localoffset">(please allow location when prompted)</span></h2>
+          <h2>This makes your local time: <span id="localtime"></span></h2>
         </section>
       </main>
     </div>

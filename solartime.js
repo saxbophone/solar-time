@@ -1,3 +1,5 @@
+OFFSET = 0;
+
 function getLocation(callback) {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(callback);
@@ -7,10 +9,10 @@ function getLocation(callback) {
 }
 
 function calculateOffset(position) {
-    fraction = position.coords.longitude / 180.0;
+    var fraction = position.coords.longitude / 180.0;
     // milliseconds * seconds * minutes * hours
-    multiplicand = 1000 * 60 * 60 * 12;
-    milliseconds = fraction * multiplicand;
+    var multiplicand = 1000 * 60 * 60 * 12;
+    var milliseconds = fraction * multiplicand;
     return milliseconds;
 }
 
@@ -19,20 +21,14 @@ function pad(n) {
 }
 
 function formatDelta(ms) {
-    // x = ms / 1000
-    // seconds = x % 60
-    // x /= 60
-    // minutes = x % 60
-    // x /= 60
-    // hours = x % 24
-    // return hours.toString() + ':' + minutes.toString() + ':' + seconds.toString();
-    date = new Date(ms);
+    var date = new Date(ms);
     return pad(date.getUTCHours()) + ':' + pad(date.getUTCMinutes()) + ':' + pad(date.getUTCSeconds());
 }
 
 function displayOffset(position) {
-    milliseconds = calculateOffset(position);
-    console.log(milliseconds);
+    var milliseconds = calculateOffset(position);
+    OFFSET = milliseconds;
+    var message;
     if (milliseconds > 0.0) {
         message = formatDelta(milliseconds) + ' ahead of UTC';
     }
@@ -42,8 +38,22 @@ function displayOffset(position) {
     else {
         message = ' even with UTC';
     }
-    element = document.getElementById('offset');
+    element = document.getElementById('localoffset');
     element.innerText = message;
+}
+
+function startTime() {
+    var today=Date.now();
+    today += OFFSET;
+    today = new Date(today);
+    var h=today.getUTCHours();
+    var m=today.getUTCMinutes();
+    var s=today.getUTCSeconds();
+    h = pad(h);
+    m = pad(m);
+    s = pad(s);
+    document.getElementById('localtime').innerHTML = h+":"+m+":"+s;
+    var t = setTimeout(function(){startTime()},500);
 }
 
 getLocation(displayOffset);
