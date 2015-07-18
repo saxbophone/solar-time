@@ -1,0 +1,23 @@
+* {
+    border-radius: 0.5rem;
+    font-family: "Muli";
+}
+ 
+html {
+    border-radius: 0rem;
+}
+ 
+html, body {
+    background-color: #444444;
+}
+
+main {
+    background-color: #868686;
+    color: #111;
+    margin: 5rem;
+    padding: 2rem;
+}
+
+strong {
+    font-family: "Arial";
+}

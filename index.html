@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Unicode UTF-8 Charset -->
+    <meta charset="utf-8">
+    <!-- Responsive design viewport config -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Solar Time | SAXBOPHONE</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Load Muli font via Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+    <!-- Personal Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- Main full-width responsive container -->
+    <div class="container-fluid">
+      <main>
+        <section>
+          <h1>Solar Time</h1>
+          <p>This simple web app will show you the precise solar time of your location, using HTML5 Geolocation.</p>
+          <p>To see the local solar time for your location, click <strong>allow</strong> when prompted to allow access to your location.</p>
+        </section>
+        <section>
+          <h2>Your location is <span id="offset">? seconds ahead/behind UTC</span></h2>
+        </section>
+      </main>
+    </div>
+    <!-- End of main container -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+    <script src="solartime.js"></script>
+  </body>
+</html>
