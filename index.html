@@ -23,15 +23,16 @@
   <body onload="startTime()">
     <!-- Main full-width responsive container -->
     <div class="container-fluid">
-      <main>
-        <section>
-          <h1>Solar Time</h1>
+      <main class="row">
+        <section class="col-md-6">
+          <h1>Solar Time by <a href="https://github.com/saxbophone" target="_blank">saxbophone</a></h1>
           <p>This simple web app will show you the precise solar time of your location, using HTML5 Geolocation.</p>
-          <p>To see the local solar time for your location, click <strong>allow</strong> when prompted to allow access to your location.</p>
+          <p>To see the local solar time for your location, click <strong>allow</strong> when prompted to allow this page access to your location. This is to calculate what the true <strong>solar time</strong> of your location is to nearest second based on your longitude position on the globe.</p>
         </section>
-        <section>
-          <h2>Your location is <span id="localoffset">(please allow location when prompted)</span></h2>
-          <h2>This makes your local time: <span id="localtime"></span></h2>
+        <section class="col-md-6">
+          <h3>Your location is <strong id="localoffset">(please allow location when prompted)</strong></h3>
+          <h3>This makes your local time: <strong id="localtime"></strong></h3>
+          <aside>This calculated time is the correct value for solar time regardless on whether your timezone is currently using daylight saving time or not, this is because the sun and the earth don't take notice of such conventions!</aside>
         </section>
       </main>
     </div>

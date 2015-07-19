@@ -20,9 +20,13 @@ function pad(n) {
     return (n < 10) ? ("0" + n) : n;
 }
 
+function formatDate(date) {
+    return pad(date.getUTCHours()) + ':' + pad(date.getUTCMinutes()) + ':' + pad(date.getUTCSeconds());
+}
+
 function formatDelta(ms) {
     var date = new Date(ms);
-    return pad(date.getUTCHours()) + ':' + pad(date.getUTCMinutes()) + ':' + pad(date.getUTCSeconds());
+    return formatDate(date);
 }
 
 function displayOffset(position) {
@@ -46,13 +50,7 @@ function startTime() {
     var today=Date.now();
     today += OFFSET;
     today = new Date(today);
-    var h=today.getUTCHours();
-    var m=today.getUTCMinutes();
-    var s=today.getUTCSeconds();
-    h = pad(h);
-    m = pad(m);
-    s = pad(s);
-    document.getElementById('localtime').innerHTML = h+":"+m+":"+s;
+    document.getElementById('localtime').innerHTML = formatDate(today);
     var t = setTimeout(function(){startTime()},500);
 }
 
