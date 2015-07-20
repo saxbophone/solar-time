@@ -25,7 +25,7 @@ function formatDate(date) {
 }
 
 function formatDelta(ms) {
-    var date = new Date(ms);
+    var date = new Date(Math.abs(ms));
     return formatDate(date);
 }
 
