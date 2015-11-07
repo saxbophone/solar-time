@@ -6,6 +6,10 @@
 html {
     border-radius: 0rem;
 }
+
+body {
+    padding-top: 1rem;
+}
  
 html, body {
     background-color: #444444;
